@@ -4,18 +4,16 @@ import (
 	"fmt"
 	"github.com/chuckha/tictactoe/player"
 	"github.com/chuckha/tictactoe/state"
-	"math/rand"
 )
 
 func main() {
 	s, _ := state.NewState()
-	u := &UserInput{}
-	inputs := []player.Player{&player.UserInput{}, &player.ComputerInput{}}
+	inputs := []player.Player{&player.ComputerInput{Symbol: "X"}, &player.ComputerInput{Symbol: "O"}}
 	turn := 0
 	for !s.IsOver() {
 		fmt.Println(s)
 		input := inputs[turn].GetInput()
-		err := u.ValidInput()
+		err := inputs[turn].ValidInput()
 		if err != nil {
 			fmt.Println(err)
 			continue

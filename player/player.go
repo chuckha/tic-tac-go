@@ -1,14 +1,21 @@
 package player
 
+import (
+	"fmt"
+	"math/rand"
+)
+
 type Player interface {
 	GetSymbol() string
 	GetInput() int
 	ValidInput() error
 }
-type ComputerInput struct{}
+type ComputerInput struct {
+	Symbol string
+}
 
 func (c *ComputerInput) GetSymbol() string {
-	return "X"
+	return c.Symbol
 }
 
 func (c *ComputerInput) GetInput() int {
@@ -19,11 +26,12 @@ func (c *ComputerInput) ValidInput() error {
 }
 
 type UserInput struct {
-	input int
+	input  int
+	Symbol string
 }
 
 func (u *UserInput) GetSymbol() string {
-	return "O"
+	return u.Symbol
 }
 func (u *UserInput) GetInput() int {
 	fmt.Println("What is your input?")
