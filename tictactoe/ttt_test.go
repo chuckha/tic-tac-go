@@ -11,3 +11,11 @@ func TestSet(t *testing.T) {
 		t.Errorf("0th index should be 1")
 	}
 }
+
+func TestSetOutOfBounds(t *testing.T) {
+	ttt := New()
+	err := ttt.Set(1000000, 1)
+	if err == nil {
+		t.Errorf("Out of bounds not checked correctly")
+	}
+}

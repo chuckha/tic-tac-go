@@ -5,10 +5,9 @@ import (
 	"github.com/chuckha/tic-tac-go/player"
 )
 
-// GetInput gets input from somehere and returns some input
-// Get input takes a player and returns a value, an index and an error
+// GetInput gets input from somewhere and returns some values.
+// GetInput returns the index of the board to set, the value to set it to and any error encountered.
 func GetInput(p *player.Player) (int, int, error) {
-	// get the user input
 	var userInputIndex int
 	fmt.Scanln(&userInputIndex)
 

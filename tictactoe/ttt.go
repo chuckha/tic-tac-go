@@ -5,19 +5,20 @@ import (
 	"fmt"
 )
 
-// TicTacToe is the representation of the game and its rules
+// TicTacToe is the representation of the game and its rules.
 type TicTacToe []int
 
-// TODO: parameterize Size instead of making it a const
 const (
+	// Size is the width & height of the board
 	Size = 3
 )
 
-// New creates a new TicTacToe game struct
+// New creates a TicTacToe
 func New() TicTacToe {
 	return make([]int, Size*Size)
 }
 
+// Set a value on the board with some rules
 func (t TicTacToe) Set(idx, val int) error {
 	if idx > len(t) {
 		return fmt.Errorf("Move cannot be outside of board")
@@ -29,6 +30,7 @@ func (t TicTacToe) Set(idx, val int) error {
 	return nil
 }
 
+// Get returns the value of a spot on the board
 func (t TicTacToe) Get(idx int) int {
 	return t[idx]
 }

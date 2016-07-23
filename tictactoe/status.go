@@ -5,9 +5,6 @@ package tictactoe
 func Winner(ttt TicTacToe) int {
 	combos := GenerateWinCombos(3)
 
-	// i have a list of indices that indicate winning arrangements
-	// do a lookup from ttt for each item
-
 	for _, combo := range combos {
 		values := intMap(combo, ttt.Get)
 		if all(values) {
@@ -17,7 +14,7 @@ func Winner(ttt TicTacToe) int {
 	return 0
 }
 
-// TODO: Generalize for any size. It might already be. But it probably only works for size 3
+// TODO: No idea if this works for values other than 3.
 func GenerateWinCombos(size int) [][]int {
 	combos := make([][]int, 0)
 
